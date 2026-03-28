@@ -1,8 +1,14 @@
 #!/bin/bash
-set -e
 
-# Pull the Docker image from Docker Hub
-docker pull gagana13/simple-python-flask-app
+# Stop and remove existing container if running
+sudo docker stop simple-python-flask-app || true
+sudo docker rm simple-python-flask-app || true
 
-# Run the Docker image as a container
-docker run -d -p 5001:5001 gagana13/simple-python-flask-app
+# Pull latest image
+sudo docker pull gagana13/simple-python-flask-app:latest
+
+# Run new container
+sudo docker run -d \
+  --name simple-python-flask-app \
+  -p 5000:5000 \
+  gagana13/simple-python-flask-app:latest
