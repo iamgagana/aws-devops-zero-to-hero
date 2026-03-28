@@ -10,5 +10,5 @@ sudo docker pull gagana13/simple-python-flask-app:latest
 # Run new container
 sudo docker run -d \
   --name simple-python-flask-app \
-  -p 5000:5000 \
+  -p 5001:5001 \
   gagana13/simple-python-flask-app:latest
